@@ -1,0 +1,49 @@
+a_set = set()
+
+a_set.add(1)
+a_set.add(1)
+a_set.add(3)
+a_set.add(1)
+a_set.add(2)
+a_set.add(3)
+a_set.add(4)
+print(a_set) # {1, 2, 3, 4}
+
+a_list = list()
+
+a_list.append(1)
+a_list.append(1)
+a_list.append(1)
+a_list.append(1)
+print(a_list)
+# [1, 1, 1, 1]
+
+############# string ######################
+
+print('Hand' + ' sanitizer' == 'Hand sanitizer') # True
+print('Python is fun!'.split(' '))
+# ['Python', 'is', 'fun!']
+print('Hello\nWorld')
+#Hello
+#World
+
+word = 'Hey, study python!'
+print('Hey, study python!'.find(',')) # 3
+print(word.find('!')) # 17
+
+print('Hey, study python!'[6]) # 6
+print(word[5:9]) # stud
+print(word[5:]) # study python!
+
+print(len(word)) # 18
+print(word.startswith('He')) # True
+print(word.endswith('on!')) # True
+print('    keep learning     '.strip()) # 'keep learning'
+print('Fun Project'.upper()) # FUN PROJECT
+print('Fun Project'.lower()) # fun project
+print('Hi {}, Nice to meet {}.'.format('Brian','you'))
+# Hi Brian, Nice to meet you.
+
+print(' '.join(['Hello', 'world', 'welcome']))
+# Hello world welcome
+
