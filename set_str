@@ -47,3 +47,32 @@ print('Hi {}, Nice to meet {}.'.format('Brian','you'))
 print(' '.join(['Hello', 'world', 'welcome']))
 # Hello world welcome
 
+
+
+text = 'hi hi, my name is.. David. Nice to meet you. Nice.'
+
+text = text.lower()
+new_text = text.replace(',', ' ').replace('.', ' ')
+word_list = new_text.split()
+
+word_count = set()
+
+for word in word_list:
+    word_count.add(word)
+    
+print('total number of word: {}'.format(len(word_count)))
+# total number of word: 9
+
+word_dict = dict()
+
+for word in word_list:
+    if word in word_dict:
+        word_dict[word] += 1
+    else:
+        word_dict[word] = 1
+
+print(word_dict)
+# {'hi': 2, 'my': 1, 'name': 1, 'is': 1, 'david': 1, 'nice': 2, 'to': 1, 'meet': 1, 'you': 1}
+
+
+
