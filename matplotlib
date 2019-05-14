@@ -1,0 +1,108 @@
+# get data from the link
+# sort dictionary
+# show graph by using matplolib
+
+import matplotlib.pyplot as plt
+
+plt.plot([1,3,2,5,4,2,6,1,3])
+plt.show()
+
+total = 0
+total_list = []
+
+for i in range(101):
+    total = total + i
+    if total % 2 == 0: # show if the number is odd
+        total_list.append(None)
+    else:
+        total_list.append(total)
+    
+print(total) # 5050
+print(i) # 100
+print(total_list) # [None, 1, 3, None, None, 15, ...]
+plt.plot(total_list)
+plt.show()
+
+
+response = requests.get('https://api.korbit.co.kr/v1/transactions?time=day')
+# print(response.json())
+# [{'amount': '0.3299', 'tid': '5726267', 'price': '7297500', 'timestamp': 1530576665493}, 
+# {'amount': '0.14873766', 'tid': '5726266', 'price': '7277000', 'timestamp': 1530576640818},...]
+# amount, tid(transaction ID), price, timestamp
+
+data = response.json()
+data_sorted = sorted(data, key = lambda x: x['timestamp'])
+price_list = []
+
+for i in data_sorted:
+    price = i['price']
+    if float(i['amount']) > 1:
+        
+        price_list.append(price)
+    
+plt.plot(price_list)
+plt.show()
+
+English = [{'name': 'Kevin', 'score': 78},
+           {'name': 'Yujin', 'score': 99},
+           {'name': 'Hannah', 'score': 92},
+           {'name': 'Isaac', 'score': 85},
+           {'name': 'Bob', 'score': 69}
+           ]
+
+English_sorted = sorted(English, key=lambda a: a['score'])
+print(English_sorted)
+# [{'name': 'Bob', 'score': 69}, {'name': 'Kevin', 'score': 78}, {'name': 'Isaac', 'score': 85}, 
+# {'name': 'Hannah', 'score': 92}, {'name': 'Yujin', 'score': 99}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
