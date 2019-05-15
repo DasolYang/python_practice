@@ -23,3 +23,49 @@ G2.add_edge(2, 3)
 G2.add_edge(1, 3)
 
 draw_graph(G2, 0.7, 300)
+
+
+# Positional argument vs Keyword argument
+
+# def class_info(subject = 'math', name, grade) 
+# cannot do that because positional argument should be in front of keyword argument
+
+def class_info(name, grade,subject = 'math'):
+    return name, grade, subject
+print(class_info('Tom','A'))
+# class_info('Tom') 
+# Type error Positional argument cannot be omitted
+
+stu_list = ['Sam','B']
+
+# print(class_info(stu_list))
+# TypeError: missing 1 positional argument: 'grade'
+
+print(class_info(*stu_list))
+# ('Sam', 'B', 'math')
+
+
+sub_dict = {'subject': 'English'}
+print(class_info(*stu_list,*sub_dict))
+# ('Sam', 'B', 'subject')
+
+print(class_info(*stu_list,**sub_dict))
+# ('Sam', 'B', 'English')
+
+print(class_info(*stu_list,sub_dict))
+('Sam', 'B', 'English')
+# ('Sam', 'B', {'subject': 'English'})
+
+####
+
+import pandas as pd
+
+df = pd.DataFrame([3.4262, 6.21341, 2.96732, -1.125723])
+round_df = df.apply(lambda val: round(val,2))
+print(round_df)
+#      0
+#0  3.43
+#1  6.21
+#2  2.97
+#3 -1.13
+
