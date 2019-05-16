@@ -1,0 +1,25 @@
+# read a file and count how many word
+# print top 7 word used.
+
+import os
+
+with open(os.path.join('textfiles','martin_speech.txt'), encoding = 'utf8') as infile:
+    content = infile.read()
+    
+line_split = content.split('\n')
+
+count_word = {}
+common = ['the','of','to','and','is','that','in','as']
+for line in line_split:
+    new_line = line.strip().replace(',','').replace('.','').replace('!','').replace("'",'')
+    word_list = new_line.split(' ')
+    for word in word_list:
+        if len(word) < 2:
+            continue
+        elif word in common: # remove common word
+            continue
+        
+        count_word[word] = count_word.get(word, 0) + 1
+        
+sorted_list = sorted(count_word.items(), key= lambda x: x[1], reverse = True)[:7]
+print(sorted_list)
