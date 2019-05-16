@@ -3,23 +3,23 @@
 
 import os
 
-with open(os.path.join('textfiles','martin_speech.txt'), encoding = 'utf8') as infile:
+with open(os.path.join('textfiles','martin_speech.txt'),encoding='utf8') as infile:
     content = infile.read()
-    
-line_split = content.split('\n')
+
+lower_content = content.lower()
+line_split = lower_content.split('\n')
 
 count_word = {}
-common = ['the','of','to','and','is','that','in','as']
+stop_words = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"]
 for line in line_split:
-    new_line = line.strip().replace(',','').replace('.','').replace('!','').replace("'",'')
+    new_line = line.strip().replace(',','').replace('.','').replace(':','').replace('"','').replace("'",'').replace('!','').replace('-','').replace(';','').replace('*','')
     word_list = new_line.split(' ')
     for word in word_list:
         if len(word) < 2:
             continue
-        elif word in common: # remove common word
+        if word in stop_words:
             continue
-        
         count_word[word] = count_word.get(word, 0) + 1
         
-sorted_list = sorted(count_word.items(), key= lambda x: x[1], reverse = True)[:7]
-print(sorted_list)
+sorted_count_word = sorted(count_word.items(), key = lambda x: x[1], reverse=True)[:7]
+print(sorted_count_word)
