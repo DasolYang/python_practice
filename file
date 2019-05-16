@@ -1,0 +1,41 @@
+
+infile = open('practice.txt')
+for line in infile:
+    print(line, end='')
+infile.close()
+
+print('\n')
+
+with open('practice.txt') as inf:
+    content = inf.read()
+print(content, end='')
+
+with open('output_practice.txt', 'w', encoding = 'utf8') as outf:
+    outf.write('테스트')
+
+
+import os
+import csv
+
+# os.path.join()  make directory name by OS
+# must have outputs directory before excute
+# outputs\\
+with open(os.path.join('outputs', 'outputfile.txt'), 'w', encoding='utf8') as fout:
+    writer = csv.writer(fout)
+    writer.writerow(['안녕', 'hi'])
+    writer.writerow(['반가워 nice to meet you'])
+    writer.writerow([213])
+    writer.writerow(['하이',12367])
+# 안녕,hi
+# 반가워 nice to meet you
+# 213
+# 하이,12367
+
+
+with open(os.path.join('outputs', 'outputfile.txt'), encoding='utf8') as fin:
+    reader = csv.reader(fin)
+    for row in reader:
+        if row == []: # to avoid priting empty list
+            continue
+        print(row)
+
