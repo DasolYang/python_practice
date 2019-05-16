@@ -3,7 +3,7 @@
 
 import os
 
-with open(os.path.join('textfiles','martin_speech.txt'),encoding='utf8') as infile:
+with open(os.path.join('textfiles','martin_speech.txt')) as infile:
     content = infile.read()
 
 lower_content = content.lower()
