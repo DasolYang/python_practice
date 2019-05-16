@@ -1,0 +1,21 @@
+from datetime import datetime
+from random import random
+
+class BmiCalculate:
+   def __init__(self, name, weight=77.0, height=1.60):
+      self.name = name
+      self.weight = weight
+      self.height = height
+      
+   def eat(self):
+      self.weight = self.weight + round(random(), 2) * 10 # random() = random float number 0 to 1 round 2 decimal
+
+   @property # getter
+   def bmi(self):
+      return round(self.weight / pow(self.height, 2), 1)
+    
+p1 = BmiCalculate('Tom', weight=75.0, height=1.73)
+print(p1.bmi)
+p1.eat()
+p1.eat()
+print(p1.bmi)
