@@ -1,0 +1,23 @@
+age_info = {'Eric': 18, 'Larry':33,'William':25}
+try:
+    print(age_info['Brian'])
+except KeyError as ke:
+    print('Missing key:', ke.args[0])
+    age_info['Brian'] = 23
+    print('Brian:', age_info['Brian'])
+    
+numbers = [1,2,3,4,5]
+try:
+    print(numbers[5])
+except IndexError as ie:
+    print('out of range:', ie.args[0])
+    numbers.append(6)
+    print(numbers[5])
+    
+# IndexError: out of range in list
+# KeyError: no key in dict
+# IOError: error of file or network
+# NameError: variable does not exist
+# TypeError
+
+
